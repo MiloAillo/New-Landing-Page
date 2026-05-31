@@ -1,0 +1,9 @@
+@import 'tailwindcss';
+
+@theme inline {
+    --font-primary: var(--font-primary)
+}
+
+:root {
+    --font-primary: "bahnschrift", "Inter", sans-serif;
+}
