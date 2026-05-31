@@ -11,3 +11,4 @@ Every routing follows URL routing config, leveraging React Router Outlet inside 
 - Bahnscrift font only works for windows
 - not responsive at the moment
 - idcard physics is very buggy
+- animated underline in navigation bar is stuttery sometimes
