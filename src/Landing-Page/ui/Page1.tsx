@@ -1,8 +1,10 @@
 import type { JSX, RefObject } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons"
+import { faGithub, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons"
 import Idcard from "../../components/Idcard/Idcard";
+import IndonesianFlag from "../../assets/IndonesianFlag.svg"
+import Male from "../../assets/Male.svg"
 
 interface Page1Props {
     page1Ref: RefObject<HTMLDivElement | null>
@@ -11,61 +13,59 @@ interface Page1Props {
 export default function Page1({ page1Ref }: Page1Props): JSX.Element {
     return (
         <section ref={page1Ref} className="relative z-1 w-screen h-screen bg-indigo-500 pt-15 text-white">
-                <Idcard className="absolute -mt-15 z-1 w-full h-full" cameraPosition={[-2,-7, 10]} />
+                <Idcard className="absolute -mt-15 z-1 w-full h-full" cameraPosition={[2,-7, 10]} />
 
-                <div className="w-full h-full flex items-center justify-center -mt-10">
+                <div className="w-full h-full flex items-center justify-center -mt-15">
 
-                    <div className="max-w-110 flex flex-col gap-5">
+                    <div className="w-105 h-10" />
+               
+                    <div className="flex flex-col gap-7 max-w-110">
 
-                        <div className="flex flex-col gap-2">
 
-                            <div>
+                        <div className="flex gap-6">
 
-                                <p className="font-light text-2xl text-indigo-50">Hello, my name is</p>
-                                <p className="font-semibold text-6xl">Faris Kahlil Haidar</p>
+                            <img src={Male} className="h-15" />
+                            <img src={IndonesianFlag} className="h-15" />
+                        
+                        </div>
 
-                            </div>
+                        <div>
 
-                            <p className="text-2xl">A software engineer aiming to be a fullstack developer.</p>
+                            <p className="font-light text-2xl text-indigo-50">Hello, my name is</p>
+                            <p className="font-semibold text-6xl">Faris Kahlil Haidar</p>
 
                         </div>
 
-                        <div className="flex flex-col gap-1">
-
-                            <p className="font-normal text-xl">You can contact me at</p>
-
-                            <div className="text-xl font-light flex flex-col gap-1">
-
-                                <div className="flex items-center gap-1">
-
-                                    <FontAwesomeIcon icon={faInstagram} className="text-2xl" />
-                                    <p>Instagram</p>
-
-                                </div>
-
-                                <div className="flex items-center gap-1">
-
-                                    <FontAwesomeIcon icon={faEnvelope} className="text-2xl" />
-                                    <p>fariskahlilhaidar@gmail.com</p>
-
-                                </div>
-
-                                <div className="flex items-center gap-1">
-
-                                    <FontAwesomeIcon icon={faLinkedin} className="text-2xl" />
-                                    <p>Faris Kahlil Haidar</p>
-
-                                </div>
-
-                            </div>
-
-                        </div>
 
                     </div>
 
-                    <div className="w-70 h-10" />
+                </div>
+
+                <div className="absolute left-0 bottom-0 mb-3 ml-3 flex flex-col gap-2">
+
+                    <button className="flex gap-2 items-center border px-3 py-1 w-fit">
+
+                        <FontAwesomeIcon icon={faInstagram} />
+                        <p className="font-normal text-base">Instagram</p>
+
+                    </button>
+
+                    <button className="flex gap-2 items-center border px-3 py-1 w-fit">
+
+                        <FontAwesomeIcon icon={faLinkedin} />
+                        <p className="font-normal text-base">Faris Kahlil Haidar</p>
+
+                    </button>
+
+                    <button className="flex gap-2 items-center border px-3 py-1 w-fit">
+
+                        <FontAwesomeIcon icon={faEnvelope} />
+                        <p className="font-normal text-base">fariskahlilhaidar@gmail.com</p>
+
+                    </button>
 
                 </div>
+
         </section>
     )
 }
