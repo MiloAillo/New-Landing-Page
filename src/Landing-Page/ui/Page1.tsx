@@ -1,12 +1,16 @@
-import type { JSX } from "react";
+import type { JSX, RefObject } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons"
 import Idcard from "../../components/Idcard/Idcard";
 
-export default function Page1(): JSX.Element {
+interface Page1Props {
+    page1Ref: RefObject<HTMLDivElement | null>
+}
+
+export default function Page1({ page1Ref }: Page1Props): JSX.Element {
     return (
-        <section className="w-screen h-screen bg-indigo-500 pt-15 text-white">
+        <section ref={page1Ref} className="relative z-1 w-screen h-screen bg-indigo-500 pt-15 text-white">
                 <Idcard className="absolute -mt-15 z-1 w-full h-full" cameraPosition={[-2,-7, 10]} />
 
                 <div className="w-full h-full flex items-center justify-center -mt-10">

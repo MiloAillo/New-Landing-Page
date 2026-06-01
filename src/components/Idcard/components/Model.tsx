@@ -12,9 +12,6 @@ interface modelProps {
 
 export default function Model({ glbPath }: modelProps): JSX.Element {
     const { nodes } = useGLTF(glbPath)
-    
-    // Debug: log available nodes
-    console.log("Available GLB nodes:", Object.keys(nodes))
 
     const plasticMaterial = new MeshPhysicalMaterial({
         transmission: 1.0,
