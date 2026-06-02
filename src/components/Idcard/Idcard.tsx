@@ -18,11 +18,11 @@ export default function Idcard({ cameraPosition,  className }: IdcardProps): JSX
 
                 {/* <OrbitControls /> */}
 
-                <pointLight position={[0, 0, 20]} intensity={1000} castShadow shadow-mapSize-width={2048} shadow-mapSize-height={2048} />
+                <pointLight position={[1, -3, 20]} intensity={1000} castShadow shadow-mapSize-width={2048} shadow-mapSize-height={2048} />
 
                 <Environment preset="warehouse" />
 
-                <Physics numSolverIterations={20} gravity={[0, -10, 0]}>
+                <Physics numSolverIterations={10} gravity={[0, -10, 0]}>
 
                     <Model glbPath="/idcard.glb" />
                     
