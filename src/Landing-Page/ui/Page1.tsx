@@ -43,7 +43,7 @@ export default function Page1({  }: Page1Props): JSX.Element {
 
                         </div>
 
-                        <div className="absolute translate-y-[30vh] translate-x-[30vw] rotate-20 w-39 h-fit border-2 rounded-lg border-white px-4 py-4 flex flex-col gap-5 items-center pointer-events-auto">
+                        <div className="absolute translate-y-[30vh] translate-x-[30vw] rotate-20 w-39 h-fit border-2 rounded-lg border-white px-4 py-4 flex flex-col gap-5 items-center pointer-events-auto opacity-60">
 
                             <div className="w-27 h-27 rounded-full bg-amber-50 flex justify-center items-center overflow-hidden animate-spin [animation-duration:10s]">
 
@@ -77,21 +77,21 @@ export default function Page1({  }: Page1Props): JSX.Element {
 
                 <div className="absolute left-0 bottom-0 mb-3 ml-3 flex flex-col gap-2">
 
-                    <button className="flex gap-2 items-center border px-3 py-1 w-fit">
+                    <button className="flex gap-2 items-center border px-3 py-1.5 bg-white text-indigo-500 w-fit">
 
                         <FontAwesomeIcon icon={faInstagram} />
                         <p className="font-normal text-base">Instagram</p>
 
                     </button>
 
-                    <button className="flex gap-2 items-center border px-3 py-1 w-fit">
+                    <button className="flex gap-2 items-center border px-3 py-1.5 w-fit">
 
                         <FontAwesomeIcon icon={faLinkedin} />
                         <p className="font-normal text-base">Faris Kahlil Haidar</p>
 
                     </button>
 
-                    <button className="flex gap-2 items-center border px-3 py-1 w-fit">
+                    <button className="flex gap-2 items-center border px-3 py-1.5 w-fit">
 
                         <FontAwesomeIcon icon={faEnvelope} />
                         <p className="font-normal text-base">fariskahlilhaidar@gmail.com</p>
