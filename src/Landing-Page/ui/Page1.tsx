@@ -11,7 +11,6 @@ import Pause from "../../assets/PauseButton.svg"
 import PrevNext from "../../assets/PrevNext.svg"
 
 interface Page1Props {
-
 }
 
 export default function Page1({  }: Page1Props): JSX.Element {
@@ -19,7 +18,7 @@ export default function Page1({  }: Page1Props): JSX.Element {
 
 
     return (
-        <section className="relative z-1 w-screen h-screen bg-indigo-500 pt-15 text-white" >
+        <section className="relative z-1 w-screen h-screen bg-indigo-500 pt-15 text-white">
 
                 <Idcard className="absolute -mt-15 z-1 w-full h-full" cameraPosition={[2,-7, 10]} />
 
