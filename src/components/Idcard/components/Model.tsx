@@ -1,8 +1,8 @@
 import {Tube, useGLTF } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
-import { interactionGroups, RapierRigidBody, RigidBody } from "@react-three/rapier";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { interactionGroups, Physics, RapierRigidBody, RigidBody } from "@react-three/rapier";
 import { useEffect, useRef, useState, type JSX } from "react";
-import { CatmullRomCurve3, Mesh, MeshPhysicalMaterial, Vector3 } from "three";
+import { CatmullRomCurve3, DoubleSide, Mesh, MeshPhysicalMaterial, Vector3 } from "three";
 import ConnectJoint from "../helper/ConnectJoint";
 import ConnectJointComponent from "./ConnectJointComponent";
 
@@ -21,7 +21,9 @@ export default function Model({ glbPath }: modelProps): JSX.Element {
         clearcoat: 1.0,
         clearcoatRoughness: 0.0,
         transparent: true,
-        opacity: 0.35,
+        opacity: 0.3,
+        depthWrite: false,
+        side: DoubleSide
     });
 
     useEffect(() => {
@@ -29,6 +31,14 @@ export default function Model({ glbPath }: modelProps): JSX.Element {
             nodes.wrap.traverse((child) => {
                 if ((child as Mesh).isMesh) {
                     (child as Mesh).material = plasticMaterial;
+                    (child as Mesh).castShadow = true;
+                }
+            });
+        }
+        if (nodes.id_paper) {
+            nodes.id_paper.traverse((child) => {
+                if ((child as Mesh).isMesh) {
+                    (child as Mesh).castShadow = true;
                 }
             });
         }
@@ -110,7 +120,7 @@ export default function Model({ glbPath }: modelProps): JSX.Element {
     return (
         <>
             <RigidBody type="fixed" ref={fixedRef} colliders={false}>
-                <mesh>
+                <mesh castShadow>
                     <sphereGeometry args={[0.028]} />
                     <meshStandardMaterial color={"black"} />
                 </mesh>
@@ -137,7 +147,7 @@ export default function Model({ glbPath }: modelProps): JSX.Element {
                     linearDamping={20}
                     // angularDamping={5000}
                 >
-                    <mesh visible={false}>
+                    <mesh visible={false} castShadow>
                         <boxGeometry args={[0.1, length, 0.1]} />
                     </mesh>
                 </RigidBody>
@@ -161,6 +171,8 @@ export default function Model({ glbPath }: modelProps): JSX.Element {
 
             { curve && curve.points && curve.points.length > 2 && 
                 <Tube
+                    castShadow
+                    receiveShadow
                     args={[
                         curve,
                         64,
@@ -189,6 +201,14 @@ export default function Model({ glbPath }: modelProps): JSX.Element {
                     anchor2={[0,0,0]}
                 />
             }
+
+            <RigidBody type="fixed">
+                <mesh position={[0, 0, -5]} receiveShadow>
+                    <boxGeometry args={[100, 100, 1]} />
+                    <shadowMaterial opacity={0.2} />
+                </mesh>
+            </RigidBody>
+
         </>
     )
 }
