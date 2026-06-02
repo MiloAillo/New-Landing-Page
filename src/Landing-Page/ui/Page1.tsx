@@ -1,4 +1,4 @@
-import type { JSX, RefObject } from "react";
+import { useState, type JSX, type RefObject } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons"
@@ -7,6 +7,7 @@ import IndonesianFlag from "../../assets/IndonesianFlag.svg"
 import Male from "../../assets/Male.svg"
 import Vinyl from "../../assets/vinyl.jpeg"
 import Play from "../../assets/PlayButton.svg"
+import Pause from "../../assets/PauseButton.svg"
 import PrevNext from "../../assets/PrevNext.svg"
 
 interface Page1Props {
@@ -14,11 +15,14 @@ interface Page1Props {
 }
 
 export default function Page1({ page1Ref }: Page1Props): JSX.Element {
+    const [ play, setPlay ] = useState(true)
+
+
     return (
         <section ref={page1Ref} className="relative z-1 w-screen h-screen bg-indigo-500 pt-15 text-white">
                 <Idcard className="absolute -mt-15 z-1 w-full h-full" cameraPosition={[2,-7, 10]} />
 
-                <div className="w-full h-full flex items-center justify-center -mt-15">
+                <div className="relative z-0 w-full h-full flex items-center justify-center -mt-15">
 
                     <div className="w-105 h-10" />
                
@@ -39,7 +43,7 @@ export default function Page1({ page1Ref }: Page1Props): JSX.Element {
 
                         </div>
 
-                        <div className="absolute translate-y-[30vh] translate-x-[30vw] rotate-20 w-39 h-fit border-2 rounded-lg border-white px-4 py-4 flex flex-col gap-5 items-center">
+                        <div className="absolute translate-y-[30vh] translate-x-[30vw] rotate-20 w-39 h-fit border-2 rounded-lg border-white px-4 py-4 flex flex-col gap-5 items-center pointer-events-auto">
 
                             <div className="w-27 h-27 rounded-full bg-amber-50 flex justify-center items-center overflow-hidden animate-spin [animation-duration:10s]">
 
@@ -51,12 +55,14 @@ export default function Page1({ page1Ref }: Page1Props): JSX.Element {
 
                             <div className="flex flex-col justify-between w-full overflow-hidden gap-2">
 
-                                <p className="text-ellipsis text-nowrap overflow-hidden min-w-0">Lorem Ipsum - Dolor Sit Amet</p>
+                                <p className="text-ellipsis text-nowrap overflow-hidden min-w-0">Under Construction</p>
 
-                                <div className="flex justify-between px-3">
+                                <div className="flex justify-between px-3 relative z-100">
                                     <img src={PrevNext} className="rotate-180 w-4" />
 
-                                    <img src={Play} className="w-4" />
+                                    { !play && <img src={Play} onClick={(e) => {e.stopPropagation(); setPlay(true)}} className="w-4" /> }
+
+                                    { play && <img src={Pause} onClick={(e) => {e.stopPropagation(); setPlay(false)}} className="w-4" /> }
 
                                     <img src={PrevNext} className="w-4" />
                                 </div>
