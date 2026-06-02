@@ -1,12 +1,32 @@
-import { useState, type JSX } from "react";
+import { useEffect, useState, type JSX } from "react";
 import { AnimatePresence, motion } from 'framer-motion';
 
 export default function NavigationBar(): JSX.Element {
     const [ hoveredBlog, setHoveredBlog ] = useState(false)
     const [ hoveredLounge, setHoveredLounge ] = useState(false)
+    const [ whiteBackground, setWhiteBackground ] = useState(false)
+
+    useEffect (() => {
+        const handler = (e: any) => {
+            const { way } = e.detail;
+
+            console.log(way)
+
+            if (way === "enter") setWhiteBackground(true)
+            if (way === "leave") setWhiteBackground(false)
+        }
+
+        window.addEventListener("scrollEvent", handler)
+    
+        return () => window.removeEventListener("scrollEvent", handler)
+    })
+
+    useEffect(() => {
+        console.log("white background: ", whiteBackground)
+    }, [whiteBackground])
 
     return (
-        <nav className="flex justify-between fixed w-screen px-10 font-light text-xl text-white items-center h-15 bg-transparent z-999">
+        <nav className={`flex justify-between fixed w-screen px-10 font-light text-xl items-center h-15 z-999 transition-all duration-300 ${whiteBackground ? "text-indigo-500" : "text-white"} `}>
 
             <div>
 
@@ -15,7 +35,7 @@ export default function NavigationBar(): JSX.Element {
                     { (!hoveredBlog && !hoveredLounge) &&
                         <motion.div
                             layoutId="underline"
-                            className="h-0.5 w-full bg-amber-50"
+                            className={`h-0.5 w-full ${whiteBackground ? "bg-indigo-500" : "bg-white"}`}
                         />
                     }
 
@@ -34,7 +54,7 @@ export default function NavigationBar(): JSX.Element {
                     { hoveredBlog &&
                         <motion.div
                             layoutId="underline"
-                            className="h-0.5 w-full bg-amber-50"
+                            className={`h-0.5 w-full ${whiteBackground ? "bg-indigo-500" : "bg-white"}`}
                         />
                     }
                 </AnimatePresence>

@@ -11,15 +11,16 @@ import Pause from "../../assets/PauseButton.svg"
 import PrevNext from "../../assets/PrevNext.svg"
 
 interface Page1Props {
-    page1Ref: RefObject<HTMLDivElement | null>
+
 }
 
-export default function Page1({ page1Ref }: Page1Props): JSX.Element {
+export default function Page1({  }: Page1Props): JSX.Element {
     const [ play, setPlay ] = useState(true)
 
 
     return (
-        <section ref={page1Ref} className="relative z-1 w-screen h-screen bg-indigo-500 pt-15 text-white">
+        <section className="relative z-1 w-screen h-screen bg-indigo-500 pt-15 text-white" >
+
                 <Idcard className="absolute -mt-15 z-1 w-full h-full" cameraPosition={[2,-7, 10]} />
 
                 <div className="relative z-0 w-full h-full flex items-center justify-center -mt-15">
