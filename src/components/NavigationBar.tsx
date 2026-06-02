@@ -69,7 +69,7 @@ export default function NavigationBar(): JSX.Element {
                     { hoveredLounge &&
                         <motion.div 
                             layoutId="underline"
-                            className="h-0.5 w-full bg-amber-50" 
+                            className={`h-0.5 w-full ${whiteBackground ? "bg-indigo-500" : "bg-white"}`} 
                         />
                     }
                 </AnimatePresence>
