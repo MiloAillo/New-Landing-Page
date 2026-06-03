@@ -23,7 +23,7 @@ export default function Page2({  }: Page2Props): JSX.Element {
 
                 <div className="flex flex-col gap-10 mt-5">
 
-                    <div className="flex flex-col gap-3 border-2 px-8 py-5">
+                    <motion.div className="flex flex-col gap-3 border-2 px-8 py-5">
 
                         <p className="font-">Excels at</p>
                     
@@ -36,7 +36,7 @@ export default function Page2({  }: Page2Props): JSX.Element {
 
                         <p className="text-base">Though i can work in backend and databases, i find that frontend fit more for me. I have explored the world of gamedev too but it doesnt fit me well.</p>
                     
-                    </div>
+                    </motion.div>
 
                     <div className="flex flex-col gap-3 border-2 px-8 py-5">
 

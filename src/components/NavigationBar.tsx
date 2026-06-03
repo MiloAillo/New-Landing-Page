@@ -42,7 +42,7 @@ export default function NavigationBar(): JSX.Element {
     }, [whiteBackground])
 
     return (
-        <nav className={`flex justify-between fixed w-screen px-10 font-light text-xl items-center h-15 z-999 transition-all duration-300 ${whiteBackground ? "text-indigo-500" : "text-white"} ${(!inPage1 && whiteBackground) ? "bg-white" : ""}`}>
+        <nav className={`flex justify-between fixed w-screen px-10 font-light text-xl items-center h-15 z-999 transition-all duration-300 ${whiteBackground ? "text-indigo-500" : "text-white"}`}>
 
             <div>
 

@@ -50,7 +50,7 @@ export default function Page1({  }: Page1Props): JSX.Element {
 
                         </div>
 
-                        <div className="absolute translate-y-[30vh] translate-x-[30vw] rotate-20 w-39 h-fit border-2 rounded-lg border-white px-4 py-4 flex flex-col gap-5 items-center pointer-events-auto opacity-60">
+                        <div className="absolute translate-y-[30vh] translate-x-[30vw] rotate-20 w-39 h-fit border-2 rounded-lg border-white px-4 py-4 flex-col gap-5 items-center pointer-events-auto opacity-60 hidden">
 
                             <div className="w-27 h-27 rounded-full bg-amber-50 flex justify-center items-center overflow-hidden animate-spin [animation-duration:10s]">
 
