@@ -12,3 +12,8 @@ Every routing follows URL routing config, leveraging React Router Outlet inside 
 - not responsive at the moment
 - idcard physics is very buggy
 - animated underline in navigation bar is stuttery sometimes
+- couldn't properly implement navigation background because scroll detection is quirky
+
+## Plan 
+- Halted all navigation bar and scroll detection implementation
+- focus on implementing content and responsiveness

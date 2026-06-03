@@ -5,12 +5,13 @@ export default function NavigationBar(): JSX.Element {
     const [ hoveredBlog, setHoveredBlog ] = useState(false)
     const [ hoveredLounge, setHoveredLounge ] = useState(false)
     const [ whiteBackground, setWhiteBackground ] = useState(false)
+    const [ inPage1, setInPage1 ] = useState(true)
 
     useEffect (() => {
         const handler = (e: any) => {
             const { way } = e.detail;
 
-            console.log(way)
+            console.log("setWhitebackground :", way)
 
             if (way === "enter") setWhiteBackground(true)
             if (way === "leave") setWhiteBackground(false)
@@ -21,12 +22,27 @@ export default function NavigationBar(): JSX.Element {
         return () => window.removeEventListener("scrollEvent", handler)
     })
 
+    useEffect (() => {
+        const handler = (e: any) => {
+            const { way } = e.detail;
+
+            console.log("setInPage1 :", way)
+
+            if (way === "enter") setInPage1(true)
+            if (way === "leave") setInPage1(false)
+        }
+
+        window.addEventListener("scrollEvent2", handler)
+    
+        return () => window.removeEventListener("scrollEvent2", handler)
+    })
+
     useEffect(() => {
         console.log("white background: ", whiteBackground)
     }, [whiteBackground])
 
     return (
-        <nav className={`flex justify-between fixed w-screen px-10 font-light text-xl items-center h-15 z-999 transition-all duration-300 ${whiteBackground ? "text-indigo-500" : "text-white"} `}>
+        <nav className={`flex justify-between fixed w-screen px-10 font-light text-xl items-center h-15 z-999 transition-all duration-300 ${whiteBackground ? "text-indigo-500" : "text-white"} ${(!inPage1 && whiteBackground) ? "bg-white" : ""}`}>
 
             <div>
 

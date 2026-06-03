@@ -7,6 +7,8 @@ import LocomotiveScroll from 'locomotive-scroll'
 
 const locomotive = new LocomotiveScroll()
 
+addEventListener("resize", () => locomotive.resize())
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode> 
       <RouterProvider router={mainRouter} />

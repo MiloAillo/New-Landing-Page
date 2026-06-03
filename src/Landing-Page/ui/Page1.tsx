@@ -18,9 +18,16 @@ export default function Page1({  }: Page1Props): JSX.Element {
 
 
     return (
-        <section className="relative z-1 w-screen h-screen bg-indigo-500 pt-15 text-white">
+        <section 
+            className="relative z-1 w-screen h-screen bg-indigo-500 pt-15 text-white"
+            data-scroll
+            data-scroll-repeat
+            data-scroll-offset="0%,10%"
+            data-scroll-position="end,end"
+            data-scroll-call="scrollEvent2"
+        >
 
-                <Idcard className="absolute -mt-15 z-1 w-full h-full" cameraPosition={[2,-7, 10]} />
+                <Idcard className="absolute -mt-15 z-2 w-full h-full" cameraPosition={[2,-7, 10]} />
 
                 <div className="relative z-0 w-full h-full flex items-center justify-center -mt-15">
 
