@@ -19,11 +19,11 @@ export default function Page2({  }: Page2Props): JSX.Element {
             data-scroll-ignore-fold
         >
 
-            <div className="flex w-[80%] gap-15 py-20">
+            <div className="flex flex-col md:flex-row w-[80%] gap-3 md:gap-15 py-5 md:py-20">
 
-                <div className="flex flex-col gap-10 mt-5">
+                <div className="flex flex-col gap-3 md:gap-10 md:mt-5">
 
-                    <motion.div className="flex flex-col gap-3 border-2 px-8 py-5">
+                    <div className="flex flex-col gap-3 border-2 px-8 py-5">
 
                         <p className="font-">Excels at</p>
                     
@@ -36,7 +36,7 @@ export default function Page2({  }: Page2Props): JSX.Element {
 
                         <p className="text-base">Though i can work in backend and databases, i find that frontend fit more for me. I have explored the world of gamedev too but it doesnt fit me well.</p>
                     
-                    </motion.div>
+                    </div>
 
                     <div className="flex flex-col gap-3 border-2 px-8 py-5">
 
@@ -55,7 +55,7 @@ export default function Page2({  }: Page2Props): JSX.Element {
 
                 </div>
 
-                <div className="flex flex-col gap-10 -mt-5">
+                <div className="flex flex-col gap-3 md:gap-10 md:-mt-5">
 
                     <div className="flex flex-col gap-3 border-2 px-8 py-5">
 
@@ -76,21 +76,21 @@ export default function Page2({  }: Page2Props): JSX.Element {
 
                         <p className="font-">Interested in</p>
                     
-                        <div className="flex gap-2 items-center bg-indigo-500 text-white py-1.5 w-fit px-4">
+                        <div className="flex gap-2 items-center bg-indigo-500 text-white py-1.5 w-full md:w-fit justify-center md:justify-start px-4">
 
                             <FontAwesomeIcon icon={faWaveSquare} className="text-xl" />
                             <p className="text-xl font-semibold">Actor</p>
 
                         </div>
 
-                        <div className="flex gap-2 items-center bg-indigo-500 text-white py-1.5 w-fit px-4">
+                        <div className="flex gap-2 items-center bg-indigo-500 text-white py-1.5 w-full md:w-fit justify-center md:justify-start px-4">
 
                             <FontAwesomeIcon icon={faWaveSquare} className="text-xl" />
                             <p className="text-xl font-semibold">Voice Actor</p>
 
                         </div>
 
-                        <div className="flex gap-2 items-center bg-indigo-500 text-white py-1.5 w-fit px-4">
+                        <div className="flex gap-2 items-center bg-indigo-500 text-white py-1.5 w-full md:w-fit justify-center md:justify-start px-4">
 
                             <FontAwesomeIcon icon={faWaveSquare} className="text-xl" />
                             <p className="text-xl font-semibold">Audio Engineer</p>
