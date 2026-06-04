@@ -11,8 +11,9 @@ Every routing follows URL routing config, leveraging React Router Outlet inside 
 - Bahnscrift font only works for windows
 - not responsive at the moment
 - idcard physics is very buggy
-- animated underline in navigation bar is stuttery sometimes
 - couldn't properly implement navigation background because scroll detection is quirky
+- no max width for everything, still considering
+- dragging id card doesnt work in mobile
 
 ## Plan 
 - Halted all navigation bar and scroll detection implementation
