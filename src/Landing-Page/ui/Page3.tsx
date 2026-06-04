@@ -11,6 +11,7 @@ import GenerateRandomXY, { getRandomIntInclusive } from "../../components/Idcard
 import { rand } from "three/src/nodes/math/MathNode.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { projects } from "../../data/projects";
 
 export default function Page3(): JSX.Element {
     const sectionRef = useRef<HTMLDivElement>(null)
@@ -113,28 +114,61 @@ export default function Page3(): JSX.Element {
                     <div className="w-50 h-20 border-l-2 border-t-2 absolute -mt-2 -ml-2" />
                     <div className="w-50 h-20 border-b-2 border-r-2 absolute right-0 bottom-0 -mt-2 -ml-2" />
 
+                    { projects && projects.length !== 0 && 
+
+                        projects.map(project => (    
+
+                            <div className="w-full bg-white text-indigo-500 px-4 py-3 flex flex-col gap-5">
+
+
+                                <div className="flex flex-col gap-1">
+
+                                    <p className="font-semibold text-xl">{project.title}</p>
+
+                                    <p className="font-normal text-base">{project.description}</p>
+
+                                </div>
+
+
+                                <div className="flex w-full justify-between">
+
+                                    { project.sourceLink &&
+
+                                        <FontAwesomeIcon 
+                                            className="text-2xl" 
+                                            icon={faGithub}
+                                            onClick={() => window.open(project.sourceLink, "_blank")} 
+                                        />
+                                    
+                                    }
+
+                                    { !project.sourceLink &&
+
+                                        <FontAwesomeIcon 
+                                            className="text-2xl opacity-50" 
+                                            icon={faGithub}
+                                        />
+                                    
+                                    }
+
+                                    { project.liveLink &&
+                                        <button 
+                                            className="bg-indigo-500 text-white px-3.5 py-0.5 "
+                                            onClick={() => window.open(project.liveLink, "_blank")}
+                                        >
+                                            {project.liveText ? project.liveText : "Live view"}
+                                        </button>
+                                    }
+
+                                </div>
+
+                            </div>
+
+                        ))
+
+                    }
 
                     {/* real content */}
-                    <div className="w-full bg-white text-indigo-500 px-4 py-3 flex flex-col gap-5">
-
-                        <div className="flex flex-col gap-1">
-
-                            <p className="font-semibold text-xl">MyFinance</p>
-
-                            <p className="font-normal text-base">Uncontrollable urge to shop and spend? Don't know where your money go?  Need to keep track of your financial? MyFinance here to help! Your  digital solution to help with your financial.</p>
-
-                        </div>
-
-
-                        <div className="flex justify-between">
-
-                            <FontAwesomeIcon icon={faGithub} className="text-2xl" />
-
-                            <button className="bg-indigo-500 text-white px-3.5 py-0.5">Live view</button>
-
-                        </div>
-
-                    </div>
 
                     <div className="w-full bg-white text-indigo-500 px-4 py-2 flex flex-col gap-5">
 
