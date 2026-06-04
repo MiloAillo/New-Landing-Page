@@ -52,56 +52,52 @@ export default function Page3(): JSX.Element {
     return (
         <section ref={sectionRef} className="relative z-2 w-screen min-h-screen bg-indigo-500 flex items-center justify-center">
 
-            {/* scattered images container */}
-            <div className="w-full h-full absolute z-5 overflow-hidden">
 
-                { imageArray && randomImagePos.length !== 0 &&
+            { imageArray && randomImagePos.length !== 0 &&
 
-                    imageArray.map((image, i) => {
- 
-                        return (
+                imageArray.map((image, i) => {
 
-                            <motion.img
-                                className={`bg-amber-500 absolute top-0 left-0 w-60 border-10 border-white`}
-                                src={image}
-                                drag
-                                dragConstraints={{ top: 0 }}
-                                dragMomentum={true}
-                                dragTransition={{
-                                    bounceDamping: 25,
-                                    power: 0.1,
-                                    timeConstant: 100
-                                }}
-                                style={{ x: randomImagePos[i].x, y: randomImagePos[i].y, boxShadow: "10px 15px 5px #00000033", rotate: getRandomIntInclusive(-15, 15) }}
-                            />
-                        
-                        )
+                    return (
 
-                    })
+                        <motion.img
+                            className={`bg-amber-500 absolute top-0 left-0 w-60 border-10 border-white z-20`}
+                            src={image}
+                            drag
+                            dragConstraints={{ top: 0 }}
+                            dragMomentum={true}
+                            dragTransition={{
+                                bounceDamping: 25,
+                                power: 0.1,
+                                timeConstant: 100
+                            }}
+                            style={{ x: randomImagePos[i].x, y: randomImagePos[i].y, boxShadow: "10px 15px 5px #00000033", rotate: getRandomIntInclusive(-15, 15) }}
+                        />
                     
-                }
+                    )
 
-                { randomImagePos.length !== 0 &&
-                    <motion.div
-                        className={`bg-amber-500 absolute top-0 z-20 left-0 w-fit h-fit border-10 border-white font-bold text-white px-2`}
-                        drag
-                        dragConstraints={{ top: 0 }}
-                        dragMomentum={true}
-                        dragTransition={{
-                            bounceDamping: 25,
-                            power: 0.1,
-                            timeConstant: 100
-                        }}
-                        style={{ x: randomImagePos[0].x, y: randomImagePos[0].y, boxShadow: "10px 15px 5px #00000033", rotate: getRandomIntInclusive(-15, 15) }}
-                    >
-                        Drag my photograph out of the way!
-                    </motion.div>
-                }
+                })
+                
+            }
 
-            </div>
+            { randomImagePos.length !== 0 &&
+                <motion.div
+                    className={`bg-amber-500 absolute top-0 z-20 left-0 w-fit h-fit border-10 border-white font-bold text-white px-2`}
+                    drag
+                    dragMomentum={true}
+                    dragTransition={{
+                        bounceDamping: 25,
+                        power: 0.1,
+                        timeConstant: 100
+                    }}
+                    style={{ x: randomImagePos[0].x, y: randomImagePos[0].y, boxShadow: "10px 15px 5px #00000033", rotate: getRandomIntInclusive(-15, 15) }}
+                >
+                    Drag my photograph out of the way!
+                </motion.div>
+            }
+
 
             {/* projects wrapper */}
-            <div className="w-[80%] flex text-white py-10">
+            <div className="w-[80%] flex text-white py-10 z-1">
 
                 <div className="w-fit flex flex-col items-end pr-10 justify-between">
 
@@ -118,7 +114,7 @@ export default function Page3(): JSX.Element {
 
                         projects.map(project => (    
 
-                            <div className="w-full bg-white text-indigo-500 px-4 py-3 flex flex-col gap-5">
+                            <div className="w-full bg-white text-indigo-500 px-4 py-3 flex flex-col gap-5 z-1 relative">
 
 
                                 <div className="flex flex-col gap-1">

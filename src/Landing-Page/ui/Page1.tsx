@@ -27,7 +27,7 @@ export default function Page1({  }: Page1Props): JSX.Element {
             data-scroll-call="scrollEvent2"
         >
 
-                <Idcard className="absolute -mt-15 z-2 w-full h-full" cameraPosition={[2,-7, 10]} />
+                {/* <Idcard className="absolute -mt-15 z-2 w-full h-full" cameraPosition={[2,-7, 10]} /> */}
 
                 <div className="relative z-0 w-full h-full flex items-center justify-center -mt-15">
 
