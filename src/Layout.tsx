@@ -11,7 +11,7 @@ export default function Layout(): JSX.Element {
 
 	return (
         // global style
-        <div className="bg-white font-primary">
+        <div className="bg-white font-primary flex flex-col items-center">
             <NavigationBar />
 
             <Outlet />

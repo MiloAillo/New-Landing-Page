@@ -19,7 +19,7 @@ export default function Page1({  }: Page1Props): JSX.Element {
 
     return (
         <section 
-            className="relative z-1 w-screen h-screen bg-indigo-500 pt-15 text-white"
+            className="relative z-1 w-screen h-screen min-h-200 md:min-h-150 max-h-230 md:max-h-200 bg-indigo-500 pt-15 text-white"
             data-scroll
             data-scroll-repeat
             data-scroll-offset="0%,10%"
@@ -27,29 +27,57 @@ export default function Page1({  }: Page1Props): JSX.Element {
             data-scroll-call="scrollEvent2"
         >
 
-                {/* <Idcard className="absolute -mt-15 z-2 w-full h-full" cameraPosition={[2,-7, 10]} /> */}
+                <Idcard className="absolute -mt-15 z-2 w-full h-full hidden md:block" cameraPosition={[2,-7, 10]} />
+                <Idcard className="absolute -mt-15 z-2 w-full h-full block md:hidden" cameraPosition={[0,-7.5, 10]} />
 
-                <div className="relative z-0 w-full h-full flex items-center justify-center -mt-15">
+                <div className="relative z-0 w-full h-full flex items-center md:-mt-15 flex-col justify-end md:justify-center md:flex-row bg-amber-50/10">
 
-                    <div className="w-105 h-10" />
+                    <div className="hidden md:block w-105 h-10 bg-amber-50/20" />
                
-                    <div className="flex flex-col gap-7 max-w-110">
+                    <div className="flex flex-col items-center md:items-start gap-3 md:gap-7 max-w-110">
 
 
                         <div className="flex gap-6">
 
-                            <img src={Male} className="h-13" />
-                            <img src={IndonesianFlag} className="h-13" />
+                            <img src={Male} className="h-10 md:h-13" />
+                            <img src={IndonesianFlag} className="h-10 md:h-13" />
                         
                         </div>
 
-                        <div>
+                        <div className="flex flex-col items-center md:items-start">
 
-                            <p className="font-light text-2xl text-indigo-50">Hello, my name is</p>
-                            <p className="font-semibold text-6xl">Faris Kahlil Haidar</p>
+                            <p className="font-light text-xl sm:text-2xl md:text-2xl text-indigo-50">Hello, my name is</p>
+                            <p className="font-semibold text-4xl sm:text-5xl md:text-6xl">Faris Kahlil Haidar</p>
 
                         </div>
 
+                        {/* contact button -- up to small only */}
+                        <div className="md:hidden flex gap-2 flex-wrap justify-center pb-5">
+
+                            <button className="flex gap-2 items-center border px-3 py-1.5 bg-white text-indigo-500 w-fit h-fit">
+
+                                <FontAwesomeIcon icon={faInstagram} />
+                                <p className="font-normal text-base">Instagram</p>
+
+                            </button>
+
+                            <button className="flex gap-2 items-center border px-3 py-1.5 w-fit h-fit">
+
+                                <FontAwesomeIcon icon={faLinkedin} />
+                                <p className="font-normal text-base">Faris Kahlil Haidar</p>
+
+                            </button>
+
+                            <button className="flex gap-2 items-center border px-3 py-1.5 w-fit h-fit">
+
+                                <FontAwesomeIcon icon={faEnvelope} />
+                                <p className="font-normal text-base">fariskahlilhaidar@gmail.com</p>
+
+                            </button>
+
+                        </div>
+
+                        {/* vinyl -- hidden */}
                         <div className="absolute translate-y-[30vh] translate-x-[30vw] rotate-20 w-39 h-fit border-2 rounded-lg border-white px-4 py-4 flex-col gap-5 items-center pointer-events-auto opacity-60 hidden">
 
                             <div className="w-27 h-27 rounded-full bg-amber-50 flex justify-center items-center overflow-hidden animate-spin [animation-duration:10s]">
@@ -82,7 +110,8 @@ export default function Page1({  }: Page1Props): JSX.Element {
 
                 </div>
 
-                <div className="absolute left-0 bottom-0 mb-3 ml-3 flex flex-col gap-2">
+                {/* contact button -- md and up only */}
+                <div className="hidden absolute left-0 bottom-0 mb-3 ml-3 md:flex flex-col gap-2">
 
                     <button className="flex gap-2 items-center border px-3 py-1.5 bg-white text-indigo-500 w-fit">
 
