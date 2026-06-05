@@ -50,7 +50,7 @@ export default function Page3(): JSX.Element {
     const offset = 200
 
     return (
-        <section ref={sectionRef} className="relative z-2 w-screen min-h-screen bg-indigo-500 flex items-center justify-center">
+        <section ref={sectionRef} className="relative z-2 w-screen bg-indigo-500 flex items-center justify-center overflow-hidden">
 
 
             { imageArray && randomImagePos.length !== 0 &&
@@ -97,7 +97,7 @@ export default function Page3(): JSX.Element {
 
 
             {/* projects wrapper */}
-            <div className="w-[80%] flex text-white py-10 z-1">
+            <div className="w-[80%] flex flex-col gap-5 md:gap-0 items-center md:items-start md:flex-row text-white py-10 z-1">
 
                 <div className="w-fit flex flex-col items-end pr-10 justify-between">
 

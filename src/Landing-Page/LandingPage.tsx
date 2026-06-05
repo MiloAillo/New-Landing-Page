@@ -8,13 +8,13 @@ import Page4 from "./ui/Page4";
 export default function LandingPage(): JSX.Element {
     return (
         <>
-            {/* <Page1 /> */}
+            <Page1 />
 
             <Page2 />
 
-            {/* <Page3 /> */}
+            <Page3 />
 
-            {/* <Page4 /> */}
+            <Page4 />
         </>
     )
 }

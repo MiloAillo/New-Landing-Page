@@ -19,7 +19,7 @@ export default function Page1({  }: Page1Props): JSX.Element {
 
     return (
         <section 
-            className="relative z-1 w-screen h-screen min-h-200 md:min-h-150 max-h-230 md:max-h-200 bg-indigo-500 pt-15 text-white"
+            className="relative z-1 w-screen h-screen min-h-200 md:min-h-150 max-h-230 md:max-h-200 bg-indigo-500 pt-15 text-white pb-5"
             data-scroll
             data-scroll-repeat
             data-scroll-offset="0%,10%"
@@ -30,7 +30,7 @@ export default function Page1({  }: Page1Props): JSX.Element {
                 <Idcard className="absolute -mt-15 z-2 w-full h-full hidden md:block" cameraPosition={[2,-7, 10]} />
                 <Idcard className="absolute -mt-15 z-2 w-full h-full block md:hidden" cameraPosition={[0,-7.5, 10]} />
 
-                <div className="relative z-0 w-full h-full flex items-center md:-mt-15 flex-col justify-end md:justify-center md:flex-row bg-amber-50/10">
+                <div className="relative z-0 w-full h-full flex items-center md:-mt-15 flex-col justify-end md:justify-center md:flex-row">
 
                     <div className="hidden md:block w-105 h-10 bg-amber-50/20" />
                

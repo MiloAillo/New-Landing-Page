@@ -10,7 +10,7 @@ interface Page2Props {
 export default function Page2({  }: Page2Props): JSX.Element {
     return (
         <motion.section 
-            className="relative z-3 w-screen min-h-screen bg-white text-indigo-500 justify-center items-center flex"
+            className="relative z-3 w-screen bg-white text-indigo-500 justify-center items-center flex py-5"
             data-scroll
             data-scroll-repeat
             data-scroll-offset="-5%,10%"
@@ -19,7 +19,7 @@ export default function Page2({  }: Page2Props): JSX.Element {
             data-scroll-ignore-fold
         >
 
-            <div className="flex flex-col md:flex-row w-[80%] gap-3 md:gap-15 py-5 md:py-20">
+            <div className="flex flex-col md:flex-row w-[80%] gap-3 md:gap-15 py-5 md:py-10">
 
                 <div className="flex flex-col gap-3 md:gap-10 md:mt-5">
 
