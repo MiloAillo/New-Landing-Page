@@ -27,17 +27,17 @@ export default function Page1({  }: Page1Props): JSX.Element {
             data-scroll-call="scrollEvent2"
         >
 
-                <Idcard className="absolute -mt-15 z-2 w-full h-full hidden md:block" cameraPosition={[2,-7, 10]} />
-                <Idcard className="absolute -mt-15 z-2 w-full h-full block md:hidden" cameraPosition={[0,-7.5, 10]} />
+                <Idcard className="absolute -mt-15 z-5 w-full h-full hidden md:block" cameraPosition={[2,-7, 10]} />
+                <Idcard className="absolute -mt-15 z-5 w-full h-full block md:hidden" cameraPosition={[0,-7.5, 10]} />
 
-                <div className="relative z-0 w-full h-full flex items-center md:-mt-15 flex-col justify-end md:justify-center md:flex-row">
+                <div className="relative w-full h-full flex items-center md:-mt-15 flex-col justify-end md:justify-center md:flex-row">
 
                     <div className="hidden md:block w-105 h-10 bg-amber-50/20" />
                
                     <div className="flex flex-col items-center md:items-start gap-3 md:gap-7 max-w-110">
 
 
-                        <div className="flex gap-6">
+                        <div className="flex gap-6 relative">
 
                             <img src={Male} className="h-10 md:h-13" />
                             <img src={IndonesianFlag} className="h-10 md:h-13" />
@@ -52,23 +52,23 @@ export default function Page1({  }: Page1Props): JSX.Element {
                         </div>
 
                         {/* contact button -- up to small only */}
-                        <div className="md:hidden flex gap-2 flex-wrap justify-center pb-5">
+                        <div className="md:hidden z-10 flex gap-2 flex-wrap justify-center pb-5">
 
-                            <button className="flex gap-2 items-center border px-3 py-1.5 bg-white text-indigo-500 w-fit h-fit">
+                            <button className="flex gap-2 items-center border px-3 py-1.5 bg-white text-indigo-500 w-fit h-fit hover:bg-transparent hover:text-white transition-all">
 
                                 <FontAwesomeIcon icon={faInstagram} />
                                 <p className="font-normal text-base">Instagram</p>
 
                             </button>
 
-                            <button className="flex gap-2 items-center border px-3 py-1.5 w-fit h-fit">
+                            <button className="flex gap-2 items-center bg-white text-indigo-500 border px-3 py-1.5 w-fit h-fit hover:bg-transparent hover:text-white transition-all">
 
                                 <FontAwesomeIcon icon={faLinkedin} />
                                 <p className="font-normal text-base">Faris Kahlil Haidar</p>
 
                             </button>
 
-                            <button className="flex gap-2 items-center border px-3 py-1.5 w-fit h-fit">
+                            <button className="flex gap-2 items-center border px-3 py-1.5 w-fit h-fit bg-white text-indigo-500 hover:bg-transparent hover:text-white transition-all">
 
                                 <FontAwesomeIcon icon={faEnvelope} />
                                 <p className="font-normal text-base">fariskahlilhaidar@gmail.com</p>
@@ -111,23 +111,23 @@ export default function Page1({  }: Page1Props): JSX.Element {
                 </div>
 
                 {/* contact button -- md and up only */}
-                <div className="hidden absolute left-0 bottom-0 mb-3 ml-3 md:flex flex-col gap-2">
+                <div className="hidden absolute z-10 left-0 bottom-0 mb-3 ml-3 md:flex flex-col gap-2">
 
-                    <button className="flex gap-2 items-center border px-3 py-1.5 bg-white text-indigo-500 w-fit">
+                    <button className="flex gap-2 items-center border px-3 py-1.5 bg-white text-indigo-500 w-fit hover:bg-transparent hover:text-white transition-all">
 
                         <FontAwesomeIcon icon={faInstagram} />
                         <p className="font-normal text-base">Instagram</p>
 
                     </button>
 
-                    <button className="flex gap-2 items-center border px-3 py-1.5 w-fit">
+                    <button className="flex gap-2 items-center border px-3 py-1.5 w-fit bg-white text-indigo-500 hover:bg-transparent hover:text-white transition-all">
 
                         <FontAwesomeIcon icon={faLinkedin} />
                         <p className="font-normal text-base">Faris Kahlil Haidar</p>
 
                     </button>
 
-                    <button className="flex gap-2 items-center border px-3 py-1.5 w-fit">
+                    <button className="flex gap-2 items-center border px-3 py-1.5 w-fit bg-white text-indigo-500 hover:bg-transparent hover:text-white transition-all">
 
                         <FontAwesomeIcon icon={faEnvelope} />
                         <p className="font-normal text-base">fariskahlilhaidar@gmail.com</p>
