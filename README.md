@@ -14,6 +14,7 @@ Every routing follows URL routing config, leveraging React Router Outlet inside 
 - couldn't properly implement navigation background because scroll detection is quirky
 - no max width for everything, still considering
 - dragging id card doesnt work in mobile
+- navbar conditional styling is all over the place, not a bug but hard to scale
 
 ## Plan 
 - Halted all navigation bar and scroll detection implementation

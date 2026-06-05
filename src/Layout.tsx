@@ -7,7 +7,7 @@ export default function Layout(): JSX.Element {
     useEffect(() => {
         const scroll = new LocomotiveScroll()
         return () => scroll.destroy()
-    })
+    }, [])
 
 	return (
         // global style
