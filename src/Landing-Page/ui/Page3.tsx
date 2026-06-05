@@ -1,6 +1,6 @@
 // import { useTransform, type MotionValue, motion } from "framer-motion";
 import { useEffect, useRef, useState, type JSX } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import img1 from "../../assets/A Perplexed Thought.webp"
 import img2 from "../../assets/Deluged Twilight.webp"
 import img3 from "../../assets/Hanging together.webp"
@@ -12,23 +12,33 @@ import { rand } from "three/src/nodes/math/MathNode.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { projects } from "../../data/projects";
+import { faXmarkCircle } from "@fortawesome/free-regular-svg-icons";
 
 export default function Page3(): JSX.Element {
     const sectionRef = useRef<HTMLDivElement>(null)
-    const [ randomImagePos, setRandomImagePos ] = useState<{x:number, y: number}[]>([])
+    const [ randomImagePos, setRandomImagePos ] = useState<{x:number, y: number, rotation: number}[]>([])
+    
+    // fullscreen image view
+    const [ imageView, setImageView ] = useState("")
+    const [ openImageView, setOpenImageView ] = useState(false)
+
+    const isDragging = useRef(false)
+
 
     useEffect(() => {
         if (sectionRef && sectionRef.current) {
 
             const sectionDOMRect = sectionRef.current.getBoundingClientRect()
             
-            const arrayPos: {x: number, y: number}[] = []
+            const arrayPos: {x: number, y: number, rotation: number}[] = []
 
             imageArray.forEach(() => {
                 
                 const randomPos = GenerateRandomXY(0, sectionDOMRect.width - offset, 0, sectionDOMRect.height - offset)
 
-                arrayPos.push(randomPos)
+                const rotation = getRandomIntInclusive(-15, 15)
+
+                arrayPos.push({x: randomPos.x, y: randomPos.y, rotation: rotation})
 
             })
 
@@ -52,7 +62,50 @@ export default function Page3(): JSX.Element {
     return (
         <section ref={sectionRef} className="relative z-2 w-screen bg-indigo-500 flex items-center justify-center overflow-hidden">
 
+            {/* fullscreen image view */}  
+            <AnimatePresence>
 
+                { openImageView &&
+
+                    <motion.div 
+                        key={"fullImageView"}
+                        className="absolute z-1000 w-screen h-screen bg-black/40 top-0 left-0 flex justify-center items-center backdrop-blur-md"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                    >
+                        {/* abrupted here: you were here the last time, please make this responsive okay. */}
+
+                        <div className="flex items-center justify-center w-full h-[80%]">
+
+                            <motion.img
+                                className={`image-view-element bg-amber-500 h-full border-10 border-white z-20`}
+                                src={imageView}
+                                style={{
+                                    rotate: 0
+                                }}
+                            />
+
+                            <div className="h-full w-10 flex justify-center">
+                            
+                                <FontAwesomeIcon 
+                                    className="text-2xl text-white" 
+                                    icon={faXmarkCircle} 
+                                    onClick={() => setOpenImageView(false)}
+                                />
+                            
+                            </div>
+
+                        </div>
+
+
+                    </motion.div>
+
+                }
+
+            </AnimatePresence>
+
+            {/* random image generation */}
             { imageArray && randomImagePos.length !== 0 &&
 
                 imageArray.map((image, i) => {
@@ -62,7 +115,15 @@ export default function Page3(): JSX.Element {
                         <motion.img
                             className={`bg-amber-500 absolute top-0 left-0 w-60 border-10 border-white z-20`}
                             src={image}
+                            onTap={() => {
+                                if (!isDragging.current) {
+                                    setImageView(image); 
+                                    setOpenImageView(true)
+                                }
+                            }}
                             drag
+                            onDragStart={() => isDragging.current = true}
+                            onDragEnd={() => setTimeout(() => isDragging.current = false, 100)}
                             dragConstraints={{ top: 0 }}
                             dragMomentum={true}
                             dragTransition={{
@@ -70,7 +131,7 @@ export default function Page3(): JSX.Element {
                                 power: 0.1,
                                 timeConstant: 100
                             }}
-                            style={{ x: randomImagePos[i].x, y: randomImagePos[i].y, boxShadow: "10px 15px 5px #00000033", rotate: getRandomIntInclusive(-15, 15) }}
+                            style={{ x: randomImagePos[i].x, y: randomImagePos[i].y, boxShadow: "10px 15px 5px #00000033", rotate: randomImagePos[i].rotation }}
                         />
                     
                     )
@@ -84,12 +145,13 @@ export default function Page3(): JSX.Element {
                     className={`bg-amber-500 absolute top-0 z-20 left-0 w-fit h-fit border-10 border-white font-bold text-white px-2`}
                     drag
                     dragMomentum={true}
+                    dragConstraints={{ top: 0 }}
                     dragTransition={{
                         bounceDamping: 25,
                         power: 0.1,
                         timeConstant: 100
                     }}
-                    style={{ x: randomImagePos[0].x, y: randomImagePos[0].y, boxShadow: "10px 15px 5px #00000033", rotate: getRandomIntInclusive(-15, 15) }}
+                    style={{ x: randomImagePos[0].x, y: randomImagePos[0].y, boxShadow: "10px 15px 5px #00000033", rotate: -5 }}
                 >
                     Drag my photograph out of the way!
                 </motion.div>
