@@ -10,6 +10,7 @@ import Play from "../../assets/PlayButton.svg"
 import Pause from "../../assets/PauseButton.svg"
 import PrevNext from "../../assets/PrevNext.svg"
 import Alert from "../../components/Idcard/components/AlertComponent";
+import { faMars } from "@fortawesome/free-solid-svg-icons";
 
 interface Page1Props {
 }
@@ -50,21 +51,21 @@ export default function Page1({  }: Page1Props): JSX.Element {
                         {/* contact button -- up to small only */}
                         <div className="md:hidden z-10 flex gap-2 flex-wrap justify-center pb-5">
 
-                            <button onClick={() => window.open("https://www.instagram.com/miloukato", "_blank")} className="flex gap-2 items-center border px-3 py-1.5 bg-white text-indigo-500 w-fit h-fit hover:bg-transparent hover:text-white transition-all">
+                            <button onClick={() => window.open("https://www.instagram.com/miloukato", "_blank")} className="flex gap-2 items-center border px-3 py-1.5 bg-white text-indigo-500 w-fit h-fit hover:bg-transparent hover:text-white transition-all cursor-pointer">
 
                                 <FontAwesomeIcon icon={faInstagram} />
                                 <p className="font-normal text-base">Instagram</p>
 
                             </button>
 
-                            <button onClick={() => window.open("https://www.linkedin.com/in/faris-kahlil-haidar-7bb35031b", "_blank")} className="flex gap-2 items-center bg-white text-indigo-500 border px-3 py-1.5 w-fit h-fit hover:bg-transparent hover:text-white transition-all">
+                            <button onClick={() => window.open("https://www.linkedin.com/in/faris-kahlil-haidar-7bb35031b", "_blank")} className="flex gap-2 items-center bg-white text-indigo-500 border px-3 py-1.5 w-fit h-fit hover:bg-transparent hover:text-white transition-all cursor-pointer">
 
                                 <FontAwesomeIcon icon={faLinkedin} />
                                 <p className="font-normal text-base">Faris Kahlil Haidar</p>
 
                             </button>
 
-                            <button onClick={() => window.open("mailto://fariskahlilhaidar@gmail.com", "_blank")} className="flex gap-2 items-center border px-3 py-1.5 w-fit h-fit bg-white text-indigo-500 hover:bg-transparent hover:text-white transition-all">
+                            <button onClick={() => window.open("mailto://fariskahlilhaidar@gmail.com", "_blank")} className="flex gap-2 items-center border px-3 py-1.5 w-fit h-fit bg-white text-indigo-500 hover:bg-transparent hover:text-white transition-all cursor-pointer">
 
                                 <FontAwesomeIcon icon={faEnvelope} />
                                 <p className="font-normal text-base">fariskahlilhaidar@gmail.com</p>
