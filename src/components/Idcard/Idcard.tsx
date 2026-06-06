@@ -3,7 +3,6 @@ import { Canvas } from "@react-three/fiber";
 import { Physics } from "@react-three/rapier";
 import { type JSX } from "react";
 import Model from "./components/Model";
-import { DirectionalLightHelper } from "three";
 
 interface IdcardProps {
     cameraPosition?: [number, number, number]

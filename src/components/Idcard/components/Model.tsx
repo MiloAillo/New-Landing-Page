@@ -59,10 +59,14 @@ export default function Model({ glbPath }: modelProps): JSX.Element {
     const mouseDebugRef = useRef<RapierRigidBody>(null)
 
     useEffect(() => {
-        const handleGlobalMouseUp = window.addEventListener("mouseup", () => setIsDragging(false))
+        const handleGlobalRelease = () => setIsDragging(false);
+        
+        window.addEventListener("pointerup", handleGlobalRelease);
+        window.addEventListener("pointercancel", handleGlobalRelease);
 
         return () => {
-            window.removeEventListener("mouseup", () => handleGlobalMouseUp)
+            window.removeEventListener("pointerup", handleGlobalRelease);
+            window.removeEventListener("pointercancel", handleGlobalRelease);
         }
     }, [])
 
@@ -157,12 +161,16 @@ export default function Model({ glbPath }: modelProps): JSX.Element {
             {/* card hanging */}
             <RigidBody ref={cardRef} position={[0, -(refs.length * length), 0]} collisionGroups={interactionGroups([0], [1])}>
                 {/* <mesh
-                    onPointerDown={(e) => { e.stopPropagation(); setIsDragging(true) }}
+                    onPointerDown={(e) => { e.stopPropagation(); (e.target as HTMLElement).setPointerCapture(e.pointerId); setIsDragging(true) }}
                 >
                     <boxGeometry args={[1, 1.5, 0.1]} />
                 </mesh> */}
                 <group
-                    onPointerDown={(e) => { e.stopPropagation(); setIsDragging(true) }}
+                    onPointerDown={(e) => { 
+                        e.stopPropagation(); 
+                        (e.target as HTMLElement).setPointerCapture(e.pointerId); 
+                        setIsDragging(true); 
+                    }}
                 >
                     {nodes.id_paper && <primitive object={nodes.id_paper} />}
                     {nodes.wrap && <primitive object={nodes.wrap} />}
