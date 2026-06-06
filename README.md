@@ -17,5 +17,4 @@ Every routing follows URL routing config, leveraging React Router Outlet inside 
 - navbar conditional styling is all over the place, not a bug but hard to scale
 
 ## Plan 
-- Halted all navigation bar and scroll detection implementation
-- focus on implementing content and responsiveness
+- fixing id card dragging issue in mobile
