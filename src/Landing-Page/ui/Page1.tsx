@@ -29,7 +29,7 @@ export default function Page1({  }: Page1Props): JSX.Element {
 
                 <div className="relative w-full h-full flex items-center md:-mt-15 flex-col justify-end md:justify-center md:flex-row">
 
-                    <div className="hidden md:block w-105 h-10 bg-amber-50/20" />
+                    <div className="hidden md:block w-105 h-10" />
                
                     <div className="flex flex-col items-center md:items-start gap-3 md:gap-7 max-w-110">
 
