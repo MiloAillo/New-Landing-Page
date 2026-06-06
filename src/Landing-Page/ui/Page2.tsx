@@ -2,7 +2,7 @@ import { useTransform, type MotionValue, motion } from "framer-motion";
 import type { JSX } from "react";
 import Idcard from "../../components/Idcard/Idcard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCamera, faCode, faRobot, faWaveSquare } from "@fortawesome/free-solid-svg-icons"
+import { faCamera, faCode, faMasksTheater, faMicrophoneLines, faRobot, faWaveSquare } from "@fortawesome/free-solid-svg-icons"
 
 interface Page2Props {
 }
@@ -43,7 +43,7 @@ export default function Page2({  }: Page2Props): JSX.Element {
 
                         </div>
 
-                        <p className="text-base">Watching how number and math could mimic how human brain work fascinates me. By learning this, i could understand and implement AI-driven web app or even be machine learning engineer in the future!</p>
+                        <p className="text-base">Watching how number and math could mimic how human brain work fascinates me. By learning this, i will able to understand and implement AI-driven web app or even be a machine learning engineer in the future!</p>
                     
                     </div>
 
@@ -72,14 +72,14 @@ export default function Page2({  }: Page2Props): JSX.Element {
                     
                         <div className="flex gap-2 items-center bg-indigo-500 text-white py-1.5 w-full md:w-fit justify-center md:justify-start px-4">
 
-                            <FontAwesomeIcon icon={faWaveSquare} className="text-xl" />
+                            <FontAwesomeIcon icon={faMasksTheater} className="text-xl" />
                             <p className="text-xl font-semibold">Actor</p>
 
                         </div>
 
                         <div className="flex gap-2 items-center bg-indigo-500 text-white py-1.5 w-full md:w-fit justify-center md:justify-start px-4">
 
-                            <FontAwesomeIcon icon={faWaveSquare} className="text-xl" />
+                            <FontAwesomeIcon icon={faMicrophoneLines} className="text-xl" />
                             <p className="text-xl font-semibold">Voice Actor</p>
 
                         </div>
