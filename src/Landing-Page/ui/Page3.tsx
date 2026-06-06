@@ -8,7 +8,6 @@ import img4 from "../../assets/Money man.webp"
 import img5 from "../../assets/Silently watching.webp"
 import img6 from "../../assets/Worldly detachment.webp"
 import GenerateRandomXY, { getRandomIntInclusive } from "../../components/Idcard/helper/generateRandomXY";
-import { rand } from "three/src/nodes/math/MathNode.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { projects } from "../../data/projects";
@@ -153,6 +152,23 @@ export default function Page3(): JSX.Element {
                     style={{ x: randomImagePos[0].x, y: randomImagePos[0].y, boxShadow: "10px 15px 5px #00000033", rotate: -5 }}
                 >
                     Drag my photograph out of the way!
+                </motion.div>
+            }
+
+            { randomImagePos.length !== 0 &&
+                <motion.div
+                    className={`bg-amber-500 absolute top-0 z-20 left-0 w-fit h-fit border-10 border-white font-bold text-white px-2 cursor-grab`}
+                    drag
+                    dragMomentum={true}
+                    dragConstraints={{ top: 0 }}
+                    dragTransition={{
+                        bounceDamping: 25,
+                        power: 0.1,
+                        timeConstant: 100
+                    }}
+                    style={{ x: randomImagePos[0].x + 80, y: randomImagePos[0].y + 30, boxShadow: "10px 15px 5px #00000033", rotate: 3 }}
+                >
+                    Or Click it!
                 </motion.div>
             }
 

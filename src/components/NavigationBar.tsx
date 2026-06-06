@@ -185,14 +185,14 @@ export default function NavigationBar(): JSX.Element {
 
                     </div>
                     
-                    <p className="px-5 text-sm mt-1 opacity-75 cursor-default">Version 1.0.0-alpha ©2026</p>
+                    <p className="px-5 text-sm mt-1 opacity-75 cursor-default">Version 0.20.11-alpha ©2026</p>
                 
                 </motion.div>
 
             }
 
             
-            <p className="hidden md:block">Version 1.0.0-alpha ©2026</p>
+            <p className="hidden md:block">Version 0.20.11-alpha ©2026</p>
         </nav>
     )
 }

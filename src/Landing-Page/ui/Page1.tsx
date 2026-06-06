@@ -1,6 +1,6 @@
-import { useState, type JSX, type RefObject } from "react";
+import { useState, type JSX } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons"
+import { faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons"
 import Idcard from "../../components/Idcard/Idcard";
 import IndonesianFlag from "../../assets/IndonesianFlag.svg"
@@ -9,8 +9,6 @@ import Vinyl from "../../assets/vinyl.jpeg"
 import Play from "../../assets/PlayButton.svg"
 import Pause from "../../assets/PauseButton.svg"
 import PrevNext from "../../assets/PrevNext.svg"
-import Alert from "../../components/Idcard/components/AlertComponent";
-import { faMars } from "@fortawesome/free-solid-svg-icons";
 
 interface Page1Props {
 }

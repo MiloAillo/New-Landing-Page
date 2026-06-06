@@ -8,3 +8,11 @@
 :root {
     --font-primary: "bahnschrift", "Inter", sans-serif;
 }
+
+* {
+    scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;                
+}

@@ -1,6 +1,6 @@
 import {Tube, useGLTF } from "@react-three/drei";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { interactionGroups, Physics, RapierRigidBody, RigidBody } from "@react-three/rapier";
+import { useFrame } from "@react-three/fiber";
+import { interactionGroups, RapierRigidBody, RigidBody } from "@react-three/rapier";
 import { useEffect, useRef, useState, type JSX } from "react";
 import { CatmullRomCurve3, DoubleSide, Mesh, MeshPhysicalMaterial, Vector3 } from "three";
 import ConnectJoint from "../helper/ConnectJoint";

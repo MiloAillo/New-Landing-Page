@@ -1,6 +1,5 @@
-import { useTransform, type MotionValue, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import type { JSX } from "react";
-import Idcard from "../../components/Idcard/Idcard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCamera, faCode, faMasksTheater, faMicrophoneLines, faRobot, faWaveSquare } from "@fortawesome/free-solid-svg-icons"
 

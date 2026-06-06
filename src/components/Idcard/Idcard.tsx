@@ -1,4 +1,4 @@
-import { Environment, Helper, OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { Environment, PerspectiveCamera } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Physics } from "@react-three/rapier";
 import { type JSX } from "react";
