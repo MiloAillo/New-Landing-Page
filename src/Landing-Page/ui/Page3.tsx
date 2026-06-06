@@ -69,24 +69,23 @@ export default function Page3(): JSX.Element {
 
                     <motion.div 
                         key={"fullImageView"}
-                        className="absolute z-1000 w-screen h-screen bg-black/40 top-0 left-0 flex justify-center items-center backdrop-blur-md"
+                        className="absolute z-1000 w-full h-full bg-black/40 top-0 left-0 flex justify-center items-center backdrop-blur-md"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                     >
-                        {/* abrupted here: you were here the last time, please make this responsive okay. */}
 
-                        <div className="flex items-center justify-center w-full h-[80%]">
+                        <div className="flex flex-col-reverse md:flex-row items-center justify-center w-[80%] md:w-full h-fit max-h-full md:h-[70%]">
 
                             <motion.img
-                                className={`image-view-element bg-amber-500 h-full border-10 border-white z-20`}
+                                className={`bg-amber-500 h-full border-10 border-white z-20`}
                                 src={imageView}
                                 style={{
                                     rotate: 0
                                 }}
                             />
 
-                            <div className="h-full w-10 flex justify-center">
+                            <div className="h-full w-full md:w-10 pb-3 justify-end md:justify-center flex">
                             
                                 <FontAwesomeIcon 
                                     className="text-2xl text-white" 
@@ -161,7 +160,7 @@ export default function Page3(): JSX.Element {
             {/* projects wrapper */}
             <div className="w-[80%] flex flex-col gap-5 md:gap-0 items-center md:items-start md:flex-row text-white py-10 z-1">
 
-                <div className="w-fit flex flex-col items-end pr-10 justify-between">
+                <div className="w-fit flex flex-col items-end md:pr-10 justify-between">
 
                     <p className="text-3xl text-nowrap font-semibold">My Works</p>
 
