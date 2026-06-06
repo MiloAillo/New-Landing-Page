@@ -9,12 +9,9 @@ Every routing follows URL routing config, leveraging React Router Outlet inside 
 
 ## Known Bug and Fixes
 - Bahnscrift font only works for windows
-- not responsive at the moment
-- idcard physics is very buggy
-- couldn't properly implement navigation background because scroll detection is quirky
-- no max width for everything, still considering
-- dragging id card doesnt work in mobile
 - navbar conditional styling is all over the place, not a bug but hard to scale
 
 ## Plan 
-- fixing id card dragging issue in mobile
+1. fix wide screen bad layout
+2. fix performance
+3. implement The Blog
