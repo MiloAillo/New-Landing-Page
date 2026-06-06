@@ -110,21 +110,21 @@ export default function Page1({  }: Page1Props): JSX.Element {
                 {/* contact button -- md and up only */}
                 <div className="hidden absolute z-10 left-0 bottom-0 mb-3 ml-3 md:flex flex-col gap-2">
 
-                    <button className="flex gap-2 items-center border px-3 py-1.5 bg-white text-indigo-500 w-fit hover:bg-transparent hover:text-white transition-all">
+                    <button className="flex gap-2 items-center border px-3 py-1.5 bg-white text-indigo-500 w-fit hover:bg-transparent hover:text-white transition-all cursor-pointer">
 
                         <FontAwesomeIcon icon={faInstagram} />
                         <p className="font-normal text-base">Instagram</p>
 
                     </button>
 
-                    <button className="flex gap-2 items-center border px-3 py-1.5 w-fit bg-white text-indigo-500 hover:bg-transparent hover:text-white transition-all">
+                    <button className="flex gap-2 items-center border px-3 py-1.5 w-fit bg-white text-indigo-500 hover:bg-transparent hover:text-white transition-all cursor-pointer">
 
                         <FontAwesomeIcon icon={faLinkedin} />
                         <p className="font-normal text-base">Faris Kahlil Haidar</p>
 
                     </button>
 
-                    <button className="flex gap-2 items-center border px-3 py-1.5 w-fit bg-white text-indigo-500 hover:bg-transparent hover:text-white transition-all">
+                    <button className="flex gap-2 items-center border px-3 py-1.5 w-fit bg-white text-indigo-500 hover:bg-transparent hover:text-white transition-all cursor-pointer">
 
                         <FontAwesomeIcon icon={faEnvelope} />
                         <p className="font-normal text-base">fariskahlilhaidar@gmail.com</p>

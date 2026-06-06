@@ -62,7 +62,7 @@ export default function NavigationBar(): JSX.Element {
     return (
         <nav className={`flex justify-between fixed w-screen px-5 md:px-10 font-light text-xl items-center h-15 z-999 transition-all duration-300 ${whiteBackground ? "text-indigo-500 bg-white" : "text-white"} ${(!inPage1 && !whiteBackground) ? "bg-indigo-500" : ""}`}>
 
-            <div>
+            <div className="cursor-default">
 
                 <p>Mischiko Moe</p>
 
@@ -82,7 +82,7 @@ export default function NavigationBar(): JSX.Element {
             
             <div className="hidden md:block">
             
-                <a onMouseEnter={() => setHoveredBlog(true)} onMouseLeave={() => setHoveredBlog(false)}>The Blog</a>
+                <a className="cursor-pointer" onMouseEnter={() => setHoveredBlog(true)} onMouseLeave={() => setHoveredBlog(false)}>The Blog</a>
 
                 <AnimatePresence>
                     { hoveredBlog &&
@@ -97,7 +97,7 @@ export default function NavigationBar(): JSX.Element {
             
             <div className="hidden md:block">
 
-                <a onMouseEnter={() => setHoveredLounge(true)} onMouseLeave={() => setHoveredLounge(false)}>The Lounge</a>
+                <a className="cursor-pointer" onMouseEnter={() => setHoveredLounge(true)} onMouseLeave={() => setHoveredLounge(false)}>The Lounge</a>
 
                 <AnimatePresence>
                     { hoveredLounge &&
@@ -116,7 +116,7 @@ export default function NavigationBar(): JSX.Element {
                 { !barsOpen &&
                 
                     <motion.div 
-                        className="block md:hidden"
+                        className="block md:hidden cursor-pointer"
                         key="bars"
                         onClick={() => setBarsOpen(true)} 
                         initial={{
@@ -137,7 +137,7 @@ export default function NavigationBar(): JSX.Element {
             
                     <motion.div 
                         key="xMark"
-                        className="relative"
+                        className="relative cursor-pointer"
                         onClick={() => setBarsOpen(false)} 
                         initial={{
                             rotate: -90
@@ -171,7 +171,7 @@ export default function NavigationBar(): JSX.Element {
 
                     <div className="px-5 w-fit">
 
-                        <p>The Blog</p>
+                        <a onClick={() => {}} className="cursor-pointer">The Blog</a>
 
                         <div className={`w-full h-0.5 ${whiteBackground ? "bg-indigo-500" : "bg-white"}`}/>
 
@@ -179,13 +179,13 @@ export default function NavigationBar(): JSX.Element {
 
                     <div className="px-5 w-fit">
 
-                        <p>The Lounge</p>
+                        <a onClick={() => {}} className="cursor-pointer">The Lounge</a>
 
                         <div className={`w-full h-0.5 ${whiteBackground ? "bg-indigo-500" : "bg-white"}`}/>
 
                     </div>
                     
-                    <p className="px-5 text-sm mt-1 opacity-75">Version 1.0.0-alpha ©2026</p>
+                    <p className="px-5 text-sm mt-1 opacity-75 cursor-default">Version 1.0.0-alpha ©2026</p>
                 
                 </motion.div>
 

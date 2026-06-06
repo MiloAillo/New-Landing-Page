@@ -15,7 +15,7 @@ export default function LandingPage(): JSX.Element {
             
                 <Alert 
                     title="I am working for a fix" 
-                    description="This web isn't mobile device friendly, as it is require moderate amount of power to properly function." 
+                    description="This web isn't mobile device friendly, as it require moderate amount of power to properly function." 
                     closeFunction={() => setShowMobileAlert(false)}
                     className="fixed z-99999 right-0 mr-5 mt-5 w-[75%] text-white" 
                 />

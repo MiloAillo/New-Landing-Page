@@ -88,7 +88,7 @@ export default function Page3(): JSX.Element {
                             <div className="h-full w-full md:w-10 pb-3 justify-end md:justify-center flex">
                             
                                 <FontAwesomeIcon 
-                                    className="text-2xl text-white" 
+                                    className="text-2xl text-white cursor-pointer" 
                                     icon={faXmarkCircle} 
                                     onClick={() => setOpenImageView(false)}
                                 />
@@ -112,7 +112,7 @@ export default function Page3(): JSX.Element {
                     return (
 
                         <motion.img
-                            className={`bg-amber-500 absolute top-0 left-0 w-60 border-10 border-white z-20`}
+                            className={`bg-amber-500 absolute top-0 left-0 w-60 border-10 border-white z-20 cursor-pointer`}
                             src={image}
                             onTap={() => {
                                 if (!isDragging.current) {
@@ -141,7 +141,7 @@ export default function Page3(): JSX.Element {
 
             { randomImagePos.length !== 0 &&
                 <motion.div
-                    className={`bg-amber-500 absolute top-0 z-20 left-0 w-fit h-fit border-10 border-white font-bold text-white px-2`}
+                    className={`bg-amber-500 absolute top-0 z-20 left-0 w-fit h-fit border-10 border-white font-bold text-white px-2 cursor-grab`}
                     drag
                     dragMomentum={true}
                     dragConstraints={{ top: 0 }}
@@ -162,7 +162,7 @@ export default function Page3(): JSX.Element {
 
                 <div className="w-fit flex flex-col items-end md:pr-10 justify-between">
 
-                    <p className="text-3xl text-nowrap font-semibold">My Works</p>
+                    <p className="text-3xl text-nowrap font-semibold cursor-default">My Works</p>
 
                 </div>
 
@@ -180,9 +180,9 @@ export default function Page3(): JSX.Element {
 
                                 <div className="flex flex-col gap-1">
 
-                                    <p className="font-semibold text-xl">{project.title}</p>
+                                    <p className="font-semibold text-xl cursor-default">{project.title}</p>
 
-                                    <p className="font-normal text-base">{project.description}</p>
+                                    <p className="font-normal text-base cursor-default">{project.description}</p>
 
                                 </div>
 
@@ -192,7 +192,7 @@ export default function Page3(): JSX.Element {
                                     { project.sourceLink &&
 
                                         <FontAwesomeIcon 
-                                            className="text-2xl" 
+                                            className="text-2xl cursor-pointer" 
                                             icon={faGithub}
                                             onClick={() => window.open(project.sourceLink, "_blank")} 
                                         />
@@ -202,7 +202,7 @@ export default function Page3(): JSX.Element {
                                     { !project.sourceLink &&
 
                                         <FontAwesomeIcon 
-                                            className="text-2xl opacity-50" 
+                                            className="text-2xl opacity-50 cursor-not-allowed" 
                                             icon={faGithub}
                                         />
                                     
@@ -210,7 +210,7 @@ export default function Page3(): JSX.Element {
 
                                     { project.liveLink &&
                                         <button 
-                                            className="bg-indigo-500 text-white px-3.5 py-0.5 "
+                                            className="bg-indigo-500 text-white px-3.5 py-0.5 cursor-pointer"
                                             onClick={() => window.open(project.liveLink, "_blank")}
                                         >
                                             {project.liveText ? project.liveText : "Live view"}
@@ -231,7 +231,7 @@ export default function Page3(): JSX.Element {
 
                         <div className="flex flex-col gap-1">
 
-                            <p className="font-normal text-base text-center">More in my Github. Be sure to check it out!</p>
+                            <p className="font-normal text-base text-center cursor-default">More in my Github. Be sure to check it out!</p>
 
                         </div>
 
