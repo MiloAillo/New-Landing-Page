@@ -9,6 +9,7 @@ import Vinyl from "../../assets/vinyl.jpeg"
 import Play from "../../assets/PlayButton.svg"
 import Pause from "../../assets/PauseButton.svg"
 import PrevNext from "../../assets/PrevNext.svg"
+import Alert from "../../components/Idcard/components/AlertComponent";
 
 interface Page1Props {
 }
@@ -21,7 +22,7 @@ export default function Page1({  }: Page1Props): JSX.Element {
         <section 
             className="page-1 relative z-1 w-screen h-screen min-h-200 md:min-h-150 max-h-230 md:max-h-200 bg-indigo-500 pt-15 text-white pb-5"
         >
-
+            
                 <Idcard className="absolute -mt-15 z-5 w-full h-full hidden md:block" cameraPosition={[2,-7, 10]} />
                 <Idcard className="absolute -mt-15 z-5 w-full h-full block md:hidden" cameraPosition={[0,-7.5, 10]} />
 
