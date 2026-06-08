@@ -12,6 +12,8 @@ Every routing follows URL routing config, leveraging React Router Outlet inside 
 - navbar conditional styling is all over the place, not a bug but hard to scale
 
 ## Plan 
-1. fix wide screen bad layout
-2. fix performance
-3. implement The Blog
+1. fix performance
+2. implement The Blog
+
+## Note
+- Navbar maximum width is 1400px, is centered. Other page maximum width should follow maximum navbar.

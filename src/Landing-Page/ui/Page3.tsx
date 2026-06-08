@@ -174,7 +174,7 @@ export default function Page3(): JSX.Element {
 
 
             {/* projects wrapper */}
-            <div className="w-[80%] flex flex-col gap-5 md:gap-0 items-center md:items-start md:flex-row text-white py-10 z-1">
+            <div className="w-[80%] max-w-330 flex flex-col gap-5 md:gap-0 items-center md:items-start md:flex-row text-white py-10 z-1">
 
                 <div className="w-fit flex flex-col items-end md:pr-10 justify-between">
 

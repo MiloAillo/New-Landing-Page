@@ -8,11 +8,11 @@ interface Page2Props {
 
 export default function Page2({  }: Page2Props): JSX.Element {
     return (
-        <motion.section 
+        <motion.section
             className="white-page relative z-3 w-screen bg-white text-indigo-500 justify-center items-center flex py-5"
         >
 
-            <div className="flex flex-col md:flex-row w-[80%] gap-3 md:gap-15 py-5 md:py-10 cursor-default">
+            <div className="flex flex-col md:flex-row w-[80%] max-w-330 gap-3 md:gap-15 py-5 md:py-10 cursor-default">
 
                 <div className="flex flex-col gap-3 md:gap-10 md:mt-5">
 

@@ -114,7 +114,7 @@ export default function Page1({  }: Page1Props): JSX.Element {
                 </div>
 
                 {/* contact button -- md and up only */}
-                <div className="hidden absolute z-10 left-0 bottom-0 mb-3 ml-3 md:flex flex-col gap-2">
+                <div className="hidden absolute z-10 left-0 bottom-0 mb-3 ml-3 md:flex flex-col gap-2 md:max-w-340 md:w-full md:left-[50%] md:translate-x-[-50%] md:ml-0">
 
                     <button onClick={() => window.open("https://legacy-mischikomoe.vercel.app", "_blank")} className="flex gap-2 items-center border px-3 py-1.5 text-white w-fit hover:bg-transparent hover:text-white transition-all cursor-pointer">
 

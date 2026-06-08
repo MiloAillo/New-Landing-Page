@@ -60,139 +60,144 @@ export default function NavigationBar(): JSX.Element {
     }, [whiteBackground, inPage1])
 
     return (
-        <nav className={`flex justify-between fixed w-screen px-5 md:px-10 font-light text-xl items-center h-15 z-999 transition-all duration-300 ${whiteBackground ? "text-indigo-500 bg-white" : "text-white"} ${(!inPage1 && !whiteBackground) ? "bg-indigo-500" : ""}`}>
+        <nav className={`flex justify-center fixed w-screen px-5 md:px-10 font-light text-xl items-center h-15 z-999 transition-all duration-300 ${whiteBackground ? "text-indigo-500 bg-white" : "text-white"} ${(!inPage1 && !whiteBackground) ? "bg-indigo-500" : ""}`}>
 
-            <div className="cursor-default">
+        <div className="flex justify-between w-full max-w-350">
 
-                <p>Mischiko Moe</p>
+                <div className="cursor-default">
 
-                    { (!hoveredBlog && !hoveredLounge && !barsOpen) &&
-                        <motion.div
-                            layoutId="underline"
-                            className={`h-0.5 w-full ${whiteBackground ? "bg-indigo-500" : "bg-white"}`}
-                        />
-                    }
+                    <p>Mischiko Moe</p>
 
-                    { (hoveredBlog || hoveredLounge || barsOpen) &&
-                        <div className="h-0.5 w-full bg-transparent" />
-                    }
+                        { (!hoveredBlog && !hoveredLounge && !barsOpen) &&
+                            <motion.div
+                                layoutId="underline"
+                                className={`h-0.5 w-full ${whiteBackground ? "bg-indigo-500" : "bg-white"}`}
+                            />
+                        }
 
-            </div>
+                        { (hoveredBlog || hoveredLounge || barsOpen) &&
+                            <div className="h-0.5 w-full bg-transparent" />
+                        }
 
-            
-            <div className="hidden md:block">
-            
-                <a className="cursor-pointer" onMouseEnter={() => setHoveredBlog(true)} onMouseLeave={() => setHoveredBlog(false)}>The Blog</a>
+                </div>
 
-                <AnimatePresence>
-                    { hoveredBlog &&
-                        <motion.div
-                            layoutId="underline"
-                            className={`h-0.5 w-full ${whiteBackground ? "bg-indigo-500" : "bg-white"}`}
-                        />
-                    }
-                </AnimatePresence>
+                
+                <div className="hidden md:block">
+                
+                    <a className="cursor-pointer" onMouseEnter={() => setHoveredBlog(true)} onMouseLeave={() => setHoveredBlog(false)}>The Blog</a>
 
-            </div>
-            
-            <div className="hidden md:block">
+                    <AnimatePresence>
+                        { hoveredBlog &&
+                            <motion.div
+                                layoutId="underline"
+                                className={`h-0.5 w-full ${whiteBackground ? "bg-indigo-500" : "bg-white"}`}
+                            />
+                        }
+                    </AnimatePresence>
 
-                <a className="cursor-pointer" onMouseEnter={() => setHoveredLounge(true)} onMouseLeave={() => setHoveredLounge(false)}>The Lounge</a>
+                </div>
+                
+                <div className="hidden md:block">
 
-                <AnimatePresence>
-                    { hoveredLounge &&
+                    <a className="cursor-pointer" onMouseEnter={() => setHoveredLounge(true)} onMouseLeave={() => setHoveredLounge(false)}>The Lounge</a>
+
+                    <AnimatePresence>
+                        { hoveredLounge &&
+                            <motion.div 
+                                layoutId="underline"
+                                className={`h-0.5 w-full ${whiteBackground ? "bg-indigo-500" : "bg-white"}`} 
+                            />
+                        }
+                    </AnimatePresence>
+
+
+                </div>
+
+                <AnimatePresence mode="wait">
+
+                    { !barsOpen &&
+                    
                         <motion.div 
-                            layoutId="underline"
-                            className={`h-0.5 w-full ${whiteBackground ? "bg-indigo-500" : "bg-white"}`} 
-                        />
+                            className="block md:hidden cursor-pointer"
+                            key="bars"
+                            onClick={() => setBarsOpen(true)} 
+                            initial={{
+                                rotate: -90
+                            }}
+                            animate={{
+                                rotate: 0
+                            }}
+                        >
+                    
+                            <FontAwesomeIcon icon={faBars} />
+                        
+                        </motion.div>
+                    
                     }
+
+                    { barsOpen &&
+                
+                        <motion.div 
+                            key="xMark"
+                            className="relative cursor-pointer"
+                            onClick={() => setBarsOpen(false)} 
+                            initial={{
+                                rotate: -90
+                            }}
+                            animate={{
+                                rotate: 0
+                            }}
+                        >
+                    
+                            <FontAwesomeIcon icon={faXmark} />
+
+                        </motion.div>
+                    
+                    }
+
                 </AnimatePresence>
 
 
-            </div>
+                { barsOpen && 
 
-            <AnimatePresence mode="wait">
-
-                { !barsOpen &&
-                
                     <motion.div 
-                        className="block md:hidden cursor-pointer"
-                        key="bars"
-                        onClick={() => setBarsOpen(true)} 
+                        className={`absolute right-0 top-0 mt-18 mr-5 border-2 py-2 flex flex-col gap-2 items-end rounded-sm backdrop-blur-[20px] ${whiteBackground ? "bg-white/75" : "bg-black/25"}`}
+                        layoutId="underline"
                         initial={{
-                            rotate: -90
+                            
                         }}
                         animate={{
-                            rotate: 0
+                            
                         }}
                     >
-                
-                        <FontAwesomeIcon icon={faBars} />
+
+                        <div className="px-5 w-fit">
+
+                            <a onClick={() => {}} className="cursor-pointer">The Blog</a>
+
+                            <div className={`w-full h-0.5 ${whiteBackground ? "bg-indigo-500" : "bg-white"}`}/>
+
+                        </div>
+
+                        <div className="px-5 w-fit">
+
+                            <a onClick={() => {}} className="cursor-pointer">The Lounge</a>
+
+                            <div className={`w-full h-0.5 ${whiteBackground ? "bg-indigo-500" : "bg-white"}`}/>
+
+                        </div>
+                        
+                        <p className="px-5 text-sm mt-1 opacity-75 cursor-default">Version 0.20.12-alpha ©2026</p>
                     
                     </motion.div>
-                
+
                 }
 
-                { barsOpen &&
+                
+                <p className="hidden md:block">Version 0.20.12-alpha ©2026</p>
             
-                    <motion.div 
-                        key="xMark"
-                        className="relative cursor-pointer"
-                        onClick={() => setBarsOpen(false)} 
-                        initial={{
-                            rotate: -90
-                        }}
-                        animate={{
-                            rotate: 0
-                        }}
-                    >
-                
-                        <FontAwesomeIcon icon={faXmark} />
+        </div>
 
-                    </motion.div>
-                
-                }
-
-            </AnimatePresence>
-
-
-            { barsOpen && 
-
-                <motion.div 
-                    className={`absolute right-0 top-0 mt-18 mr-5 border-2 py-2 flex flex-col gap-2 items-end rounded-sm backdrop-blur-[20px] ${whiteBackground ? "bg-white/75" : "bg-black/25"}`}
-                    layoutId="underline"
-                    initial={{
-                        
-                    }}
-                    animate={{
-                        
-                    }}
-                >
-
-                    <div className="px-5 w-fit">
-
-                        <a onClick={() => {}} className="cursor-pointer">The Blog</a>
-
-                        <div className={`w-full h-0.5 ${whiteBackground ? "bg-indigo-500" : "bg-white"}`}/>
-
-                    </div>
-
-                    <div className="px-5 w-fit">
-
-                        <a onClick={() => {}} className="cursor-pointer">The Lounge</a>
-
-                        <div className={`w-full h-0.5 ${whiteBackground ? "bg-indigo-500" : "bg-white"}`}/>
-
-                    </div>
-                    
-                    <p className="px-5 text-sm mt-1 opacity-75 cursor-default">Version 0.20.11-alpha ©2026</p>
-                
-                </motion.div>
-
-            }
-
-            
-            <p className="hidden md:block">Version 0.20.11-alpha ©2026</p>
         </nav>
     )
 }
