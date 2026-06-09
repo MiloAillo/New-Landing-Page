@@ -4,8 +4,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import {  } from "@fortawesome/free-regular-svg-icons";
 import CustomObserver from "../functions/customObserver";
+import { useLocation, useNavigate } from "react-router";
 
 export default function NavigationBar(): JSX.Element {
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    // landing page useState
     const [ hoveredBlog, setHoveredBlog ] = useState(false)
     const [ hoveredLounge, setHoveredLounge ] = useState(false)
     const [ whiteBackground, setWhiteBackground ] = useState(false)
@@ -14,45 +19,74 @@ export default function NavigationBar(): JSX.Element {
     const [ barsOpen, setBarsOpen ] = useState(false)
 
     useEffect(() => {
-
-        // white page observer
-        const whitePage = document.querySelector('.white-page')
-
-        // page 1 observer
-        const firstPage = document.querySelector('.page-1')
-
-        if (whitePage && firstPage) {
-    
-            const observer = CustomObserver({
-                rootMargin: `0px 0px -${window.innerHeight - 61}px 0px`,
-                threshold: 0,
-                trueFunction() {
-                    setWhiteBackground(true)
-                },
-                falseFunction() {
-                    setWhiteBackground(false)
-                },
-            })
-    
-            observer.observe(whitePage)
-            
-            const observer2 = CustomObserver({
-                rootMargin: `0px 0px 0px 0px`,
-                threshold: 0, 
-                trueFunction() { 
-                    setInPage1(true) 
-                }, 
-                falseFunction() {
-                    setInPage1(false)
-                }, 
-            }) 
-
-            observer2.observe(firstPage)
-
+        if (location.pathname !== "/") {
+            setWhiteBackground(false)
+            setInPage1(false)
+            return
         }
 
+        console.log("Setting up observers for landing page")
 
-    }, [])
+        let observer: IntersectionObserver | null = null
+        let observer2: IntersectionObserver | null = null
+
+        const initObservers = () => {
+            // white page observer
+            const whitePage = document.querySelector('.white-page')
+            // page 1 observer
+            const firstPage = document.querySelector('.page-1')
+
+            if (whitePage && firstPage) {
+                observer = CustomObserver({
+                    rootMargin: `0px 0px -${window.innerHeight - 61}px 0px`,
+                    threshold: 0,
+                    trueFunction() {
+                        setWhiteBackground(true)
+                    },
+                    falseFunction() {
+                        setWhiteBackground(false)
+                    },
+                })
+                observer.observe(whitePage)
+
+                observer2 = CustomObserver({
+                    rootMargin: `0px 0px 0px 0px`,
+                    threshold: 0, 
+                    trueFunction() { 
+                        setInPage1(true) 
+                    }, 
+                    falseFunction() {
+                        setInPage1(false)
+                    }, 
+                }) 
+                observer2.observe(firstPage)
+
+                return true
+            }
+            return false
+        }
+
+        // Try to initialize
+        if (!initObservers()) {
+            // If elements are not found (e.g. during transition), retry
+            const timer = setInterval(() => {
+                if (initObservers()) {
+                    clearInterval(timer)
+                }
+            }, 100)
+            return () => {
+                clearInterval(timer)
+                observer?.disconnect()
+                observer2?.disconnect()
+            }
+        }
+
+        return () => {
+            observer?.disconnect()
+            observer2?.disconnect()
+        }
+
+    }, [location.pathname])
 
     useEffect(() => {
         console.log("white background: ", whiteBackground)
@@ -66,7 +100,7 @@ export default function NavigationBar(): JSX.Element {
 
                 <div className="cursor-default">
 
-                    <p>Mischiko Moe</p>
+                    <p onClick={() => {navigate("/")}}>Mischiko Moe</p>
 
                         { (!hoveredBlog && !hoveredLounge && !barsOpen) &&
                             <motion.div
@@ -84,7 +118,7 @@ export default function NavigationBar(): JSX.Element {
                 
                 <div className="hidden md:block">
                 
-                    <a className="cursor-pointer" onMouseEnter={() => setHoveredBlog(true)} onMouseLeave={() => setHoveredBlog(false)}>The Blog</a>
+                    <a className="cursor-pointer" onClick={() => {navigate("/blog")}} onMouseEnter={() => setHoveredBlog(true)} onMouseLeave={() => setHoveredBlog(false)}>The Blog</a>
 
                     <AnimatePresence>
                         { hoveredBlog &&
@@ -99,7 +133,7 @@ export default function NavigationBar(): JSX.Element {
                 
                 <div className="hidden md:block">
 
-                    <a className="cursor-pointer" onMouseEnter={() => setHoveredLounge(true)} onMouseLeave={() => setHoveredLounge(false)}>The Lounge</a>
+                    <a className="cursor-pointer" onClick={() => {navigate("/lounge")}} onMouseEnter={() => setHoveredLounge(true)} onMouseLeave={() => setHoveredLounge(false)}>The Lounge</a>
 
                     <AnimatePresence>
                         { hoveredLounge &&
@@ -173,7 +207,7 @@ export default function NavigationBar(): JSX.Element {
 
                         <div className="px-5 w-fit">
 
-                            <a onClick={() => {}} className="cursor-pointer">The Blog</a>
+                            <a onClick={() => {navigate("/blog")}} className="cursor-pointer">The Blog</a>
 
                             <div className={`w-full h-0.5 ${whiteBackground ? "bg-indigo-500" : "bg-white"}`}/>
 
@@ -181,7 +215,7 @@ export default function NavigationBar(): JSX.Element {
 
                         <div className="px-5 w-fit">
 
-                            <a onClick={() => {}} className="cursor-pointer">The Lounge</a>
+                            <a onClick={() => {navigate("/lounge")}} className="cursor-pointer">The Lounge</a>
 
                             <div className={`w-full h-0.5 ${whiteBackground ? "bg-indigo-500" : "bg-white"}`}/>
 

@@ -1,15 +1,20 @@
-import { useState, type JSX } from "react";
+import React, { useState, type JSX } from "react";
+import { motion } from "framer-motion";
 import Page1 from "./ui/Page1";
 import Page2 from "./ui/Page2";
 import Page3 from "./ui/Page3";
 import Page4 from "./ui/Page4";
 import Alert from "../components/Idcard/components/AlertComponent";
+import { outletMotion } from "../Layout";
 
 export default function LandingPage(): JSX.Element {
     const [ showMobileAlert, setShowMobileAlert ] = useState(true)
 
     return (
-        <>
+        <motion.div
+            key={"Landing-Page"}
+            {...outletMotion}
+        >
             { showMobileAlert &&
             
                 <Alert 
@@ -28,6 +33,6 @@ export default function LandingPage(): JSX.Element {
             <Page3 />
 
             <Page4 />
-        </>
+        </motion.div>
     )
 }
